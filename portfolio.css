@@ -11,6 +11,9 @@
 .hero-section {
   display: flex;
   height: 80vh; /* full page height */
+  margin-left: 6vh;
+  margin-top: 9vh;
+
 }
 
 .banner-img {
@@ -20,9 +23,8 @@
 }
 
 .text-block {
-  padding: 2rem;
   display: flex;
-
+  padding-left:3rem;
 }
 
 
@@ -33,4 +35,10 @@
 
 .text-block p {
   font-size: 1.2rem;
+}
+
+.logo {
+  width: 10rem;   
+  height: 10rem; 
+  margin-bottom: 1rem;
 }
