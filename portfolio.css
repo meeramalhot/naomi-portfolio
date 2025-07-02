@@ -60,7 +60,7 @@
   border-left: 3px solid black;
   padding-left: 0.5rem;
 
-  transition: transform 0.50s ease;
+  transition: transform 1s ease;
 }
 
 .nav-links a:hover {
