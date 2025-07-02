@@ -10,7 +10,7 @@
 
 .hero-section {
   display: flex;
-  height: 80vh; /* full page height */
+  height: 80vh; 
   margin-left: 6vh;
   margin-top: 9vh;
 
@@ -24,7 +24,7 @@
 
 .text-block {
   display: flex;
-  flex-direction: column; /* <-- add this line */
+  flex-direction: column; 
   padding-left: 3rem;
   padding-right: 5rem;
 }
@@ -59,4 +59,10 @@
   padding: 0.5rem 0;
   border-left: 3px solid black;
   padding-left: 0.5rem;
+
+  transition: transform 0.50s ease;
+}
+
+.nav-links a:hover {
+  transform: translateX(10vh);
 }
