@@ -64,5 +64,5 @@
 }
 
 .nav-links a:hover {
-  transform: translateX(10vh);
+  transform: translateX(6rem);
 }
