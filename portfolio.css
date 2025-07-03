@@ -60,3 +60,25 @@
 .nav-links a:hover {
   transform: translateX(6rem);
 }
+
+html {
+      scroll-behavior: smooth;
+}
+
+.painting-row {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.painting-img {
+  width: 320px;
+  height: auto;
+  object-fit: cover;
+}
+
+.stacked-column {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
