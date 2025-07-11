@@ -68,17 +68,17 @@ html {
 
 .painting-row {
   display: flex;
-  gap: 7%;
+  gap: 3%;
   flex-wrap: wrap;
-  padding-left: 10vh;
-  padding-right: 10vh;
+  padding-left: 8vh;
+  padding-right: 8vh;
   justify-content: center;
 
 }
 
 .painting-img {
   width: auto;
-  height: 70vh;
+  height: 80vh;
   object-fit: cover;
   padding-bottom: 10vh;
 }
