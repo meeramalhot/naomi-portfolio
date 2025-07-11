@@ -70,6 +70,7 @@ html {
   display: flex;
   gap: 2rem;
   flex-wrap: wrap;
+  padding-bottom: 4vh;
 }
 
 .painting-img {
