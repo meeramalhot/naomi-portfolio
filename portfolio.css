@@ -70,8 +70,8 @@ html {
   display: flex;
   gap: 3%;
   flex-wrap: wrap;
-  padding-left: 8vh;
-  padding-right: 8vh;
+  padding-left: 1vh;
+  padding-right: 1vh;
   justify-content: center;
 
 }
