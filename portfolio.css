@@ -73,6 +73,8 @@ html {
   padding-bottom: 8vh;
   padding-left: 10vh;
   padding-right: 10vh;
+  justify-content: center;
+
 }
 
 .painting-img {
