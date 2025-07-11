@@ -68,9 +68,11 @@ html {
 
 .painting-row {
   display: flex;
-  gap: 2rem;
+  gap: 10%;
   flex-wrap: wrap;
   padding-bottom: 8vh;
+  padding-left: 10vh;
+  padding-right: 10vh;
 }
 
 .painting-img {
@@ -81,13 +83,18 @@ html {
 
 .stacked-column {
   display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  flex-direction: row;
+  gap: 25vh;
+  padding-left: 10vh;
+  padding-right: 10vh;
+  padding-bottom: 12vh;
+  justify-content: center;
+
 }
 
 .landscapes {          
   display: flex;
-  gap: 4rem;         
+  gap: 10vh;         
   justify-content: center;
 }
 .landscapes img {     
