@@ -68,9 +68,8 @@ html {
 
 .painting-row {
   display: flex;
-  gap: 10%;
+  gap: 7%;
   flex-wrap: wrap;
-  padding-bottom: 8vh;
   padding-left: 10vh;
   padding-right: 10vh;
   justify-content: center;
@@ -78,9 +77,10 @@ html {
 }
 
 .painting-img {
-  width: 320px;
-  height: auto;
+  width: auto;
+  height: 70vh;
   object-fit: cover;
+  padding-bottom: 10vh;
 }
 
 .stacked-column {
@@ -89,7 +89,7 @@ html {
   gap: 25vh;
   padding-left: 10vh;
   padding-right: 10vh;
-  padding-bottom: 12vh;
+  padding-bottom: 10vh;
   justify-content: center;
 
 }
@@ -99,6 +99,7 @@ html {
   gap: 10vh;         
   justify-content: center;
 }
+
 .landscapes img {     
   width: 45%;       
   height: auto;
