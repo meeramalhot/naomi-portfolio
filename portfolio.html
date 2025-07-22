@@ -32,7 +32,12 @@
   <section id="painting" style="margin: 4rem 3vh;">
     <h1 style="font-size: 6vh; padding-top: 5vh;">Painting</h1>
     <div class="painting-row">
-      <img src="assets/painting/smother.jpeg" alt="smother painting" class="painting-img">
+      <span class="painting-wrapper"
+      data-title="Smother"
+      data-meta="Naomi Ross|2023|Oil paint on canvas|68 x 160 inches">
+  <img src="assets/painting/smother.jpeg" alt="smother painting" class="painting-img">
+</span>
+
       <img src="assets/painting/meerio.png" alt="meerio painting" class="painting-img">
       <img src="assets/painting/fishy.png" alt="fish painting" class="painting-img">
       </div>
@@ -63,3 +68,12 @@
   </section>
 </body>
 </html>
+
+<script>
+  document.querySelectorAll('.painting-wrapper').forEach(el => {
+    const meta = el.getAttribute('data-meta');
+    if (meta) {
+      el.setAttribute('data-meta', meta.replaceAll('|', '\n'));
+    }
+  });
+</script>

@@ -118,3 +118,48 @@ html {
   height: auto;
   padding-bottom: 8vh;
 }
+.painting-wrapper {
+  position: relative;
+  display: inline-block;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.painting-wrapper:hover .painting-img {
+  opacity: 0.3;
+}
+
+.painting-wrapper::before {
+  content: attr(data-title);
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-style: italic;
+  font-size: 1.6rem;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.painting-wrapper::after {
+  content: attr(data-meta);
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.1rem;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  white-space: pre-line;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Convert | to real newlines using JavaScript on load */
+.painting-wrapper:hover::before,
+.painting-wrapper:hover::after {
+  opacity: 1;
+}
