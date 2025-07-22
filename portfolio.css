@@ -121,7 +121,7 @@ html {
 .painting-wrapper {
   position: relative;
   display: inline-block;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Times New Roman", Times, serif;
 }
 
 .painting-wrapper:hover .painting-img {
