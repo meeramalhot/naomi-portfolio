@@ -1,3 +1,4 @@
+
 * {
   font-family: "Lucida Console", "Courier New", monospace;
 }
@@ -68,99 +69,66 @@ html {
       scroll-behavior: smooth;
 }
 
-.painting-row {
-  display: flex;
-  gap: 1%;
-  /* flex-wrap: wrap; */
-  padding-left: 1vh;
-  padding-right: 1vh;
-  justify-content: center;
-
+/* --- Painting: first three images side-by-side + responsive --- */
+/* --- Painting layout: 3-up → 2-up → 1-up --- */
+#painting {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1.5rem;
+  align-items: start;
 }
 
-.painting-img {
-  width: auto;
-  height: 80vh;
+/* Heading spans full width */
+#painting > h1 {
+  grid-column: 1 / -1;
+  margin: 0 0 .5rem 0;
+}
+
+/* Reset any fixed sizes on images here */
+#painting img {
+  display: block;
+  width: 100%;
+  height: auto !important;
+}
+
+/* First three images: side by side on desktop */
+#painting > img:nth-of-type(1),
+#painting > img:nth-of-type(2),
+#painting > img:nth-of-type(3) {
+  grid-column: span 4; /* 12/3 = 4 */
+}
+
+/* Everything after the first three goes full width (one per row) */
+#painting > img:nth-of-type(n+4) {
+  grid-column: 1 / -1;
+}
+
+/* Tablet: make the first three 2-up */
+@media (max-width: 1024px) {
+  #painting > img:nth-of-type(-n+3) { grid-column: span 6; } /* 2 per row */
+}
+
+/* Phone: stack the first three */
+@media (max-width: 600px) {
+  #painting > img:nth-of-type(-n+3) { grid-column: 1 / -1; } /* 1 per row */
+}
+
+/* --- Make the first three painting images the same height --- */
+#painting > img:nth-of-type(-n+3) {
+  width: 100%;
+  height: clamp(200px, 22vw, 320px) !important; /* same height on laptop & responsive */
+  object-fit: cover;      /* crop to fill without distortion */
+  object-position: center;
+  display: block;
+}
+
+/* If those three have specific classes, override them too (belt & suspenders) */
+#painting > img.fishy,
+#painting > img.smother,
+#painting > img.lucy {
+  width: 100%;
+  height: clamp(80vh, 22vw, 320px) !important;
   object-fit: cover;
-  padding-bottom: 5vh;
+  object-position: center;
 }
 
-.stacked-column {
-  display: flex;
-  flex-direction: row;
-  gap: 15vh;
-  padding-left: 10vh;
-  padding-right: 10vh;
-  padding-bottom: 5vh;
-  justify-content: center;
-
-}
-
-.landscapes {          
-  display: flex;
-  gap: 10vh;         
-  justify-content: center;
-  padding-bottom: 8vh;
-}
-
-.landscapes img {     
-  width: 45%;       
-  height: auto;
-}
-
-.montclair {
-  display: flex;
-  justify-content: center;
-}
-
-.montclair img {
-  width: 80%;       
-  height: auto;
-  padding-bottom: 8vh;
-}
-
-.painting-wrapper {
-  position: relative;
-  display: inline-block;
-  font-family: "Times New Roman", Times, serif;
-}
-
-.painting-wrapper:hover .painting-img {
-  opacity: 0.3;
-}
-
-.painting-wrapper::before {
-  content: attr(data-title);
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  transform: translateX(-50%);
-  font-style: italic;
-  font-size: 1.6rem;
-  color: rgb(0, 0, 0);
-  text-align: center;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.painting-wrapper::after {
-  content: attr(data-meta);
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 1.1rem;
-  color: rgb(0, 0, 0);
-  text-align: center;
-  white-space: pre-line;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-/* Convert | to real newlines using JavaScript on load */
-.painting-wrapper:hover::before,
-.painting-wrapper:hover::after {
-  opacity: 1;
-}
