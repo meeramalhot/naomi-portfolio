@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Naomi Ross</title>
-  <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link rel="stylesheet" href="portfolio.css">
-
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="stylesheet" href="portfolio.css" />
 </head>
-
 <body>
   <div class="hero-section">
-    <img src="assets/painting/smother.jpeg" alt="Banner image of Naomi's artwork" class="banner-img">
+    <img
+      src="assets/painting/smother.jpeg"
+      alt="Banner image of Naomi's artwork"
+      class="banner-img"
+    />
 
     <div class="text-block">
       <h1>hi. i'm naomi!</h1>
-      <p>welcome to my online portfolio. this is a lot of text about me and who i am. i am so funny and personable.
-        people love that about me. i have been an artist for 10 billion years and four weeks.
+      <p>
+        welcome to my online portfolio. this is a lot of text about me and who i am.
+        i am so funny and personable. people love that about me. i have been an artist
+        for 10 billion years and four weeks.
       </p>
 
-      <!-- Navigation links -->
       <nav class="nav-links">
         <a href="#painting">Painting</a>
         <a href="drawing.html">Drawing</a>
@@ -29,25 +32,47 @@
     </div>
   </div>
 
-  <!-- Painting section: clicking the nav link smoothly scrolls to here -->
-  <section id="painting" style="margin: 4rem 6vh;">
-    <h1 style="font-size: 6vh; padding-top: 5vh;">Painting</h1>
-    <img src="assets/painting/fishy.png" alt="fish painting" class="fishy">
-    <img src="assets/painting/smother.jpeg" alt="smother painting" class="smother">
-    <img src="assets/painting/meerio.png" alt="meerio painting" class="lucy">
+  <section id="painting">
+    <h1>Painting</h1>
 
-      <!-- <img src="assets/painting/eye.jpeg" alt="eye painting" class="painting-img">
-      <img src="assets/painting/fishes.jpeg" alt="fish painting" class="painting-img">
-      <img src="assets/painting/montclair.jpg" alt="montclair">
-      <img src="assets/painting/landscape2.jpeg">
-      <img src="assets/painting/landscape1.jpeg"> 
-      <img src="assets/painting/freud.jpg" alt="freud"> -->
+    <div class="painting-grid">
+      <figure class="card">
+        <img src="assets/painting/fishy.png" alt="Fish painting" loading="lazy" />
+        <figcaption>
+          <span class="title">Pebble</span><br />
+          <span class="meta">Oil on Canvas • 2023</span>
+        </figcaption>
+      </figure>
+
+      <figure class="card">
+        <img src="assets/painting/meerio.png" alt="Meerio painting" loading="lazy" />
+        <figcaption>
+          <span class="title">Lucy</span><br />
+          <span class="meta">Oil on Canvas • 2023</span>
+        </figcaption>
+      </figure>
+
+      <figure class="card">
+        <img src="assets/painting/smother.jpeg" alt="Smother painting" loading="lazy" />
+        <figcaption>
+          <span class="title">Smother</span><br />
+          <span class="meta">Oil on Canvas • 2023</span>
+        </figcaption>
+      </figure>
+
+
+    </div>
   </section>
 
-
-
-  </section>
+  <script>
+    // (Optional) Safe to keep even if not used.
+    document.querySelectorAll('.painting-wrapper').forEach(el => {
+      const meta = el.getAttribute('data-meta');
+      if (meta) el.setAttribute('data-meta', meta.replaceAll('|', '\n'));
+    });
+  </script>
 </body>
+</html>
 
 </html>
 

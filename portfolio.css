@@ -1,21 +1,19 @@
-
 * {
   font-family: "Lucida Console", "Courier New", monospace;
 }
 
 .banner {
   height: 80vh;
-  object-fit: cover; 
+  object-fit: cover;
   display: block;
 }
 
 .hero-section {
   display: flex;
-  height: 80vh; 
+  height: 80vh;
   margin-left: 6vh;
   margin-top: 9vh;
   margin-bottom: 20vh;
-
 }
 
 .banner-img {
@@ -26,16 +24,14 @@
 
 .text-block {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   padding-left: 3rem;
   padding-right: 5rem;
   margin-bottom: 20vh;
-
 }
 
-
 .text-block h1 {
-  margin: 0 0 0 0;
+  margin: 0;
   font-size: 2.8rem;
 }
 
@@ -44,7 +40,7 @@
 }
 
 .nav-links {
-  margin-top: .4rem;
+  margin-top: 0.4rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -57,7 +53,6 @@
   padding: 0.5rem 0;
   border-left: 3px solid black;
   padding-left: 0.5rem;
-
   transition: transform 1s ease;
 }
 
@@ -66,69 +61,90 @@
 }
 
 html {
-      scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
-/* --- Painting: first three images side-by-side + responsive --- */
-/* --- Painting layout: 3-up → 2-up → 1-up --- */
+/* ---------- Responsive Gallery ---------- */
 #painting {
+  margin: 4rem 6vh;
+}
+
+#painting h1 {
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  padding-top: 5vh;
+  margin-bottom: 1rem;
+}
+
+.painting-grid {
   display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
   align-items: start;
 }
 
-/* Heading spans full width */
-#painting > h1 {
-  grid-column: 1 / -1;
-  margin: 0 0 .5rem 0;
+.card {
+  display: flex;
+  flex-direction: column;
 }
 
-/* Reset any fixed sizes on images here */
-#painting img {
-  display: block;
+.card img {
   width: 100%;
-  height: auto !important;
-}
-
-/* First three images: side by side on desktop */
-#painting > img:nth-of-type(1),
-#painting > img:nth-of-type(2),
-#painting > img:nth-of-type(3) {
-  grid-column: span 4; /* 12/3 = 4 */
-}
-
-/* Everything after the first three goes full width (one per row) */
-#painting > img:nth-of-type(n+4) {
-  grid-column: 1 / -1;
-}
-
-/* Tablet: make the first three 2-up */
-@media (max-width: 1024px) {
-  #painting > img:nth-of-type(-n+3) { grid-column: span 6; } /* 2 per row */
-}
-
-/* Phone: stack the first three */
-@media (max-width: 600px) {
-  #painting > img:nth-of-type(-n+3) { grid-column: 1 / -1; } /* 1 per row */
-}
-
-/* --- Make the first three painting images the same height --- */
-#painting > img:nth-of-type(-n+3) {
-  width: 100%;
-  height: clamp(200px, 22vw, 320px) !important; /* same height on laptop & responsive */
-  object-fit: cover;      /* crop to fill without distortion */
-  object-position: center;
-  display: block;
-}
-
-/* If those three have specific classes, override them too (belt & suspenders) */
-#painting > img.fishy,
-#painting > img.smother,
-#painting > img.lucy {
-  width: 100%;
-  height: clamp(80vh, 22vw, 320px) !important;
+  height: clamp(70vh, 30vw, 320px); /* uniform visual height */
   object-fit: cover;
-  object-position: center;
+  display: block;
 }
 
+.card figcaption {
+  margin-top: 0.5rem;
+  line-height: 1.25;
+}
+
+.card .title {
+  font-weight: 700;
+  font-size: clamp(0.95rem, 1.6vw, 1.05rem);
+}
+
+.card .meta {
+  font-size: clamp(0.85rem, 1.4vw, 0.95rem);
+  opacity: 0.8;
+}
+
+/* ---------- Mobile & Tablet Tweaks ---------- */
+@media (max-width: 900px) {
+  .hero-section {
+    flex-direction: column;
+    height: auto;
+    margin: 1.25rem 1rem 2rem;
+  }
+
+  .banner-img {
+    width: auto;
+    height: 80vh;
+  }
+
+  .text-block {
+    padding: 0;
+    margin: 1rem 0 0;
+  }
+
+  .nav-links {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.75rem 1rem;
+  }
+
+  .nav-links a {
+    border-left: none;
+    border-bottom: 2px solid black;
+    padding: 0.25rem 0;
+    transform: none;
+  }
+
+  .nav-links a:hover {
+    transform: none;
+  }
+
+  #painting {
+    margin: 2rem 1rem 3rem;
+  }
+}
