@@ -8,13 +8,13 @@
   <link rel="stylesheet" href="portfolio.css" />
 </head>
 <body>
+  <!-- Hero -->
   <div class="hero-section">
     <img
       src="assets/painting/smother.jpeg"
       alt="Banner image of Naomi's artwork"
       class="banner-img"
     />
-
     <div class="text-block">
       <h1>hi. i'm naomi!</h1>
       <p>
@@ -22,7 +22,6 @@
         i am so funny and personable. people love that about me. i have been an artist
         for 10 billion years and four weeks.
       </p>
-
       <nav class="nav-links">
         <a href="#painting">Painting</a>
         <a href="drawing.html">Drawing</a>
@@ -32,55 +31,164 @@
     </div>
   </div>
 
-  <section id="painting">
-    <h1>Painting</h1>
+  <!-- Collection -->
+  <section id="painting" aria-labelledby="painting-title">
+    <h1 id="painting-title">Painting</h1>
 
-    <div class="painting-grid">
-      <figure class="card">
-        <img src="assets/painting/fishy.png" alt="Fish painting" loading="lazy" />
-        <figcaption>
-          <span class="title">Pebble</span><br />
-          <span class="meta">Oil on Canvas • 2023</span>
-        </figcaption>
-      </figure>
+    <!-- Toolbar: search · filter · sort · count -->
+    <div class="toolbar" role="region" aria-label="Filters and sorting">
+      <div class="toolbar-row">
+        <label class="search">
+          <span class="visually-hidden">Search works</span>
+          <input
+            id="search"
+            type="search"
+            placeholder="Search titles, medium, year…"
+            aria-label="Search works"
+          />
+        </label>
 
-      <figure class="card">
-        <img src="assets/painting/meerio.png" alt="Meerio painting" loading="lazy" />
-        <figcaption>
-          <span class="title">Lucy</span><br />
-          <span class="meta">Oil on Canvas • 2023</span>
-        </figcaption>
-      </figure>
+        <div class="chips" role="group" aria-label="Filter by medium">
+          <button type="button" class="chip is-active" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="chip" data-filter="Painting" aria-pressed="false">Paintings</button>
+          <button type="button" class="chip" data-filter="Drawing" aria-pressed="false">Drawings</button>
+          <button type="button" class="chip" data-filter="Other" aria-pressed="false">Other</button>
+        </div>
 
-      <figure class="card">
-        <img src="assets/painting/smother.jpeg" alt="Smother painting" loading="lazy" />
-        <figcaption>
-          <span class="title">Smother</span><br />
-          <span class="meta">Oil on Canvas • 2023</span>
-        </figcaption>
-      </figure>
+        <label class="sort">
+          <span>Sort</span>
+          <select id="sort">
+            <option value="date-desc">Date (newest–oldest)</option>
+            <option value="date-asc">Date (oldest–newest)</option>
+            <option value="title-asc">Title (A–Z)</option>
+            <option value="title-desc">Title (Z–A)</option>
+          </select>
+        </label>
+      </div>
+      <div class="toolbar-row">
+        <button type="button" class="btn-reset" id="reset">Reset</button>
+        <div class="count" id="count" aria-live="polite"></div>
+      </div>
+    </div>
 
+    <!-- Grid -->
+    <div class="collection-grid" id="grid">
+      <!-- Card -->
+      <article class="work" data-medium="Painting" data-title="Fishy" data-year="2023" tabindex="0">
+        <a class="thumb" href="#" aria-label="Open Fishy, Painting, 2023">
+          <img src="assets/painting/fishy.png" alt="Fishy, Painting, 2023" loading="lazy" />
+        </a>
+        <div class="meta">
+          <h3 class="title">Fishy</h3>
+          <p class="sub">Painting • 2023</p>
+        </div>
+      </article>
 
+      <article class="work" data-medium="Painting" data-title="Smother" data-year="2024" tabindex="0">
+        <a class="thumb" href="#" aria-label="Open Smother, Painting, 2024">
+          <img src="assets/painting/smother.jpeg" alt="Smother, Painting, 2024" loading="lazy" />
+        </a>
+        <div class="meta">
+          <h3 class="title">Smother</h3>
+          <p class="sub">Painting • 2024</p>
+        </div>
+      </article>
+
+      <article class="work" data-medium="Painting" data-title="Meerio" data-year="2022" tabindex="0">
+        <a class="thumb" href="#" aria-label="Open Meerio, Painting, 2022">
+          <img src="assets/painting/meerio.png" alt="Meerio, Painting, 2022" loading="lazy" />
+        </a>
+        <div class="meta">
+          <h3 class="title">Lucy</h3>
+          <p class="sub">Painting • 2022</p>
+        </div>
+      </article>
+
+      <!-- Example “Other” to demo filters; replace or remove as needed -->
+      <article class="work" data-medium="Other" data-title="Untitled Study" data-year="2021" tabindex="0">
+        <a class="thumb" href="#" aria-label="Open Untitled Study, Other, 2021">
+          <img src="assets/painting/fishy.png" alt="Untitled Study, Mixed media, 2021" loading="lazy" />
+        </a>
+        <div class="meta">
+          <h3 class="title">Untitled Study</h3>
+          <p class="sub">Mixed media • 2021</p>
+        </div>
+      </article>
     </div>
   </section>
 
   <script>
-    // (Optional) Safe to keep even if not used.
-    document.querySelectorAll('.painting-wrapper').forEach(el => {
-      const meta = el.getAttribute('data-meta');
-      if (meta) el.setAttribute('data-meta', meta.replaceAll('|', '\n'));
+    // --- Simple search, filter, sort (Whitney-inspired controls) ---
+    const $ = (s, r = document) => r.querySelector(s);
+    const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+    const grid = $("#grid");
+    const cards = $$(".work", grid);
+    const search = $("#search");
+    const sort = $("#sort");
+    const chips = $$(".chip");
+    const count = $("#count");
+    const resetBtn = $("#reset");
+
+    function normalize(s) { return s.toLowerCase().trim(); }
+
+    function activeFilter() {
+      const btn = chips.find(c => c.classList.contains("is-active"));
+      return btn?.dataset.filter ?? "all";
+    }
+
+    function apply() {
+      const q = normalize(search.value);
+      const filt = activeFilter();
+
+      // Filter
+      cards.forEach(card => {
+        const title = normalize(card.dataset.title || "");
+        const medium = normalize(card.dataset.medium || "");
+        const year = normalize(card.dataset.year || "");
+        const matchesText = !q || title.includes(q) || medium.includes(q) || year.includes(q);
+        const matchesFilter = filt === "all" || medium === normalize(filt);
+        card.style.display = (matchesText && matchesFilter) ? "" : "none";
+      });
+
+      // Sort
+      const visible = cards.filter(c => c.style.display !== "none");
+      const mode = sort.value;
+      visible.sort((a, b) => {
+        const ta = (a.dataset.title || "").toLowerCase();
+        const tb = (b.dataset.title || "").toLowerCase();
+        const ya = parseInt(a.dataset.year || "0", 10);
+        const yb = parseInt(b.dataset.year || "0", 10);
+        if (mode === "title-asc")  return ta.localeCompare(tb);
+        if (mode === "title-desc") return tb.localeCompare(ta);
+        if (mode === "date-asc")  return ya - yb;
+        return yb - ya; // date-desc (default)
+      });
+
+      // Re-append in new order
+      visible.forEach(node => grid.appendChild(node));
+
+      // Count
+      count.textContent = `${visible.length} work${visible.length === 1 ? "" : "s"}`;
+    }
+
+    chips.forEach(btn => {
+      btn.addEventListener("click", () => {
+        chips.forEach(c => { c.classList.remove("is-active"); c.setAttribute("aria-pressed", "false"); });
+        btn.classList.add("is-active");
+        btn.setAttribute("aria-pressed", "true");
+        apply();
+      });
     });
+
+    [search, sort].forEach(el => el.addEventListener("input", apply));
+    resetBtn.addEventListener("click", () => {
+      search.value = "";
+      sort.value = "date-desc";
+      chips[0].click(); // activates "All"
+    });
+
+    // Init
+    apply();
   </script>
 </body>
 </html>
-
-</html>
-
-<script>
-  document.querySelectorAll('.painting-wrapper').forEach(el => {
-    const meta = el.getAttribute('data-meta');
-    if (meta) {
-      el.setAttribute('data-meta', meta.replaceAll('|', '\n'));
-    }
-  });
-</script>
