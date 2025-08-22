@@ -38,7 +38,7 @@ body {
 .nav-links a:hover { transform: translateX(0.5rem); }
 
 /* Section */
-#painting { margin: 4rem 6vh; }
+#painting { margin: 4rem 3vh; }
 #painting h1 {
   font-size: clamp(1.75rem, 3vw, 2.75rem);
   padding-top: 5vh;
@@ -132,7 +132,7 @@ body {
 
 @media (max-width: 900px) {
   /* Mobile tweaks */
-  .hero-section { flex-direction: column; height: auto; margin: 1.25rem 1rem 2rem; }
+  .hero-section { flex-direction: column; height: auto; margin: 1.25rem 1rem 1rem; }
   .banner-img { width: 100%; height: 40vh; }
   .text-block { padding-right: 0; margin: 1rem 0 0; }
   .nav-links { flex-direction: row; flex-wrap: wrap; gap: .5rem 1rem; }
@@ -153,3 +153,11 @@ body {
 #grid2.two-up { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: min(1300px, 94vw); margin: 2vh auto; }
 #grid2 .thumb { aspect-ratio: 16 / 9; }   /* optional, keeps them landscape */
 @media (max-width: 900px) { #grid2.two-up { grid-template-columns: 1fr; } }
+
+
+#other { margin: 2rem 6vh; }
+#other h1 {
+  font-size: clamp(1.75rem, 3vw, 2.75rem);
+  padding-top: 5vh;
+  margin-bottom: 1rem;
+}
