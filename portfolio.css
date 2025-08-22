@@ -99,7 +99,7 @@ body {
 .grid-break { grid-column: 1 / -1; height: 0; }
 
 .padding {
-  padding-bottom: 4vh;
+  padding-bottom: 2vh;
 }
 .work {
   display: grid;
