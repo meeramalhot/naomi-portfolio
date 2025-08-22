@@ -155,9 +155,16 @@ body {
 @media (max-width: 900px) { #grid2.two-up { grid-template-columns: 1fr; } }
 
 
-#other { margin: 2rem 6vh; }
-#other h1 {
-  font-size: clamp(1.75rem, 3vw, 2.75rem);
-  padding-top: 5vh;
-  margin-bottom: 1rem;
+#painting,
+#other {
+  /* same side margins and top/bottom rhythm */
+  margin: 3rem 3vh 2rem;
 }
+
+/* reduce extra space around the two-up row */
+#grid2.two-up {
+  margin: 1rem auto 1.5rem; /* was 2vh auto; tighter */
+}
+
+/* if a spacer div existed, neutralize it */
+.padding { padding-bottom: 0 !important; }
