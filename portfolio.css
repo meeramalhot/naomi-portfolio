@@ -170,28 +170,38 @@ body {
 .padding { padding-bottom: 0 !important; }
 
 
-/* Single-image feature section */
-#feature {
-  /* matches your #painting / #other rhythm */
-  margin: 3rem 3vh 2rem;
-}
+/* Featured section spacing (you already have something similar) */
+#feature { margin: 3rem 3vh 2rem; }
 
-/* Center the image and cap width */
+/* Width cap ~80% on desktop, full width on phone */
 .feature-work {
-  width: min(80vw, 1200px); /* ~80% of page, never exceeds 1200px */
+  width: min(80vw, 1200px);
   margin: 0 auto;
   display: grid;
-  gap: .5rem;               /* matches card spacing */
+  gap: .5rem;
 }
 
-/* Preserve image aspect ratio; reuse your rounded corners */
-.feature-work img {
+/* Zoom container, mirroring .thumb styles */
+.feature-thumb {
+  display: block;
+  overflow: hidden;            /* critical so the zoom doesn’t spill */
+  background: #f3f3f3;
+}
+
+.feature-thumb img {
   width: 100%;
   height: auto;
   display: block;
+  transition: transform .4s ease;
 }
 
-/* Mobile: let it breathe edge-to-edge within section margins */
+/* Same zoom behavior as your cards */
+@media (hover: hover) {
+  .feature-thumb:hover img { transform: scale(1.03); }
+}
+.feature-thumb:focus-visible img { transform: scale(1.03); }
+
+/* Phone */
 @media (max-width: 900px) {
   .feature-work { width: 100%; }
 }
