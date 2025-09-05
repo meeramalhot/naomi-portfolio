@@ -175,7 +175,7 @@ body {
 
 /* Width cap ~80% on desktop, full width on phone */
 .feature-work {
-  width: min(80vw, 1200px);
+  width: min(80vw, auto);
   margin: 0 auto;
   display: grid;
   gap: .5rem;
