@@ -175,3 +175,38 @@ body {
   transform: scale(0.98);
 }
 
+/* Responsive header for mobile screens */
+@media (max-width: 900px) {
+  .site-header {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 1.25rem;
+    height: auto;
+  }
+
+  .site-header .brand {
+    font-size: clamp(2rem, 6vw, 2.5rem);
+    padding-top: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  .site-nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .site-nav a {
+    font-size: 1.25rem;
+    display: block;
+    padding: 0.25rem 0;
+  }
+
+  /* Ensure the grid still fits nicely below the header */
+  .collection-grid {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
