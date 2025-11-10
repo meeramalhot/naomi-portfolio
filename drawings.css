@@ -237,3 +237,31 @@ body {
   border: none;
   display: block;
 }
+
+
+.site-nav {
+  transition: opacity 0.3s ease;
+}
+
+/* Responsive PDF scaling on mobile */
+@media (max-width: 900px) {
+  .pdf-frame {
+    width: 95vw;           /* almost full width */
+    height: 85vh;          /* fits within the visible screen */
+    max-width: none;       /* allow full width use */
+    box-shadow: none;      /* cleaner mobile appearance */
+    border-radius: 0;      /* remove corners for full-bleed look */
+  }
+
+  .pdf-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    transform: scale(1);   /* ensure no zoom issues */
+  }
+
+  .contact-main {
+    padding: 2vh 0;        /* tighten top/bottom padding */
+    min-height: 100vh;
+  }
+}
