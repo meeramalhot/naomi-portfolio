@@ -29,3 +29,27 @@
     ></iframe>
   </div>
 </main>
+
+<script>
+  // Hide full nav when scrolling up on mobile
+  let lastScrollTop = 0;
+  const header = document.querySelector('.site-header');
+  const nav = document.querySelector('.site-nav');
+
+  window.addEventListener('scroll', () => {
+    if (window.innerWidth <= 900) { // Only apply on mobile
+      let scrollTop = window.scrollY || document.documentElement.scrollTop;
+      if (scrollTop > lastScrollTop) {
+        // scrolling down — show full header
+        nav.style.display = 'flex';
+      } else {
+        // scrolling up — hide nav, show only Naomi Ross
+        nav.style.display = 'none';
+      }
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // avoid negative scroll
+    } else {
+      // reset for desktop
+      nav.style.display = 'flex';
+    }
+  });
+</script>
