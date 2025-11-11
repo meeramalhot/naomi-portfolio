@@ -246,7 +246,7 @@ body {
 /* Responsive PDF scaling on mobile */
 @media (max-width: 900px) {
   .pdf-frame {
-    width: 95vw;           /* almost full width */
+    width: 95vw; 
     height: 85vh;           
     max-width: none;       /* allow full width use */
     box-shadow: none;      /* cleaner mobile appearance */
