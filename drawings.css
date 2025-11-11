@@ -247,7 +247,7 @@ body {
 @media (max-width: 900px) {
   .pdf-frame {
     width: 95vw;           /* almost full width */
-    height: 85vh;          /* fits within the visible screen */
+    height: 85vh;           
     max-width: none;       /* allow full width use */
     box-shadow: none;      /* cleaner mobile appearance */
     border-radius: 0;      /* remove corners for full-bleed look */
