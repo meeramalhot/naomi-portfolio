@@ -335,3 +335,48 @@ body {
     min-height: min(75vw, 420px);
   }
 }
+
+.site-footer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 3vh 6vh;
+  padding-top: 1.5rem;
+
+  border-top: 1px solid #000000;
+  color: #000000;
+}
+
+.site-footer img {
+  width: 56px;
+  height: 56px;
+  border-radius: 25%;
+  border: 1px solid #000000; /* ← this is the key line */
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.site-footer p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  max-width: 600px;
+}
+
+.site-footer a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.site-footer a:hover {
+  opacity: 0.75;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .site-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+}
