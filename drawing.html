@@ -51,8 +51,7 @@
   </div>
 
   <div class="padding"></div>
-
-  <!-- Feature 1 -->
+<!-- 
   <figure class="feature-work">
     <a class="feature-thumb" href="#" aria-label="Open: The Natural History Museum">
       <img
@@ -65,7 +64,40 @@
       <h3 class="title">The Natural History Museum</h3>
       <p class="sub">Pencil on paper • 2025</p>
     </figcaption>
-  </figure>
+  </figure> -->
+
+  <section class="slideshow" aria-label="Sketchbook slideshow">
+    <div class="slideshow-container auto">
+  
+      <figure class="slide">
+        <img src="assets/drawing/sketchbook/asahi.png" alt="Asahi drawing">
+        <figcaption class="caption">Asahi · 2024</figcaption>
+      </figure>
+  
+      <figure class="slide">
+        <img src="assets/drawing/sketchbook/tintin.jpeg" alt="Tintin drawing">
+        <figcaption class="caption">Tintin Study · 2024</figcaption>
+      </figure>
+  
+      <figure class="slide">
+        <img src="assets/drawing/sketchbook/dino.jpeg" alt="Bedroom sketch">
+        <figcaption class="caption">Natural History Museum · 2024</figcaption>
+      </figure>
+
+        
+      <figure class="slide">
+        <img src="assets/drawing/sketchbook/croc.png" alt="crocodile">
+        <figcaption class="caption">Sturgeon, Salman Toor · 2025</figcaption>
+      </figure>
+
+
+      <figure class="slide">
+        <img src="assets/drawing/sketchbook/conversation.jpg" alt="conversation">
+        <figcaption class="caption">Conversation · 2024</figcaption>
+      </figure>
+  
+    </div>
+  </section>
 
   
   <!-- Grid 2 -->
@@ -103,7 +135,7 @@
   </div>
 
     <!-- Feature 2 -->
-    <figure class="feature-work">
+    <!-- <figure class="feature-work">
       <a class="feature-thumb" href="#" aria-label="Katie">
         <img
           src="assets/drawing/figure/katie.png"
@@ -115,49 +147,35 @@
         <h3 class="title">Katie</h3>
         <p class="sub">Pencil on paper • 2024</p>
       </figcaption>
-    </figure>
-  </body>
-  </html>
-  
+    </figure>   -->
 
-  <!-- Feature 2 -->
-  <figure class="feature-work">
-    <a class="feature-thumb" href="#" aria-label="Asahi">
-      <img
-        src="assets/drawing/sketchbook/asahi.png"
-        alt="Asahi"
-        loading="lazy"
-      />
-    </a>
-    <figcaption class="meta">
-      <h3 class="title">Asahi</h3>
-      <p class="sub">Pen on paper • 2024</p>
-    </figcaption>
-  </figure>
+
+
+    <script>
+
+      // Hide full nav when scrolling up on mobile
+      let lastScrollTop = 0;
+      const header = document.querySelector('.site-header');
+      const nav = document.querySelector('.site-nav');
+    
+      window.addEventListener('scroll', () => {
+        if (window.innerWidth <= 900) { // Only apply on mobile
+          let scrollTop = window.scrollY || document.documentElement.scrollTop;
+          if (scrollTop > lastScrollTop) {
+            // scrolling down — show full header
+            nav.style.display = 'flex';
+          } else {
+            // scrolling up — hide nav, show only Naomi Ross
+            nav.style.display = 'none';
+          }
+          lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // avoid negative scroll
+        } else {
+          // reset for desktop
+          nav.style.display = 'flex';
+        }
+      });
+    
+    
+    </script>
 </body>
 </html>
-
-
-<script>
-  // Hide full nav when scrolling up on mobile
-  let lastScrollTop = 0;
-  const header = document.querySelector('.site-header');
-  const nav = document.querySelector('.site-nav');
-
-  window.addEventListener('scroll', () => {
-    if (window.innerWidth <= 900) { // Only apply on mobile
-      let scrollTop = window.scrollY || document.documentElement.scrollTop;
-      if (scrollTop > lastScrollTop) {
-        // scrolling down — show full header
-        nav.style.display = 'flex';
-      } else {
-        // scrolling up — hide nav, show only Naomi Ross
-        nav.style.display = 'none';
-      }
-      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // avoid negative scroll
-    } else {
-      // reset for desktop
-      nav.style.display = 'flex';
-    }
-  });
-</script>
