@@ -134,39 +134,70 @@
     </div>
   </section>
 
-
-  <!-- <section class="slideshow" aria-label="Figure Drawing slideshow">
+  <section class="slideshow slideshow2" aria-label="Clark Sketchbook">
+    <h2>Live Figure Drawings</h2>
     <div class="slideshow-container auto">
+      <button class="slide-btn prev" aria-label="Previous image">‹</button>
+      <button class="slide-btn next" aria-label="Next image">›</button>
   
       <figure class="slide">
-        <img src="assets/drawing/sketchbook/asahi.png" alt="Asahi drawing">
-        <figcaption class="caption">Asahi · 2024</figcaption>
+        <img src="assets/drawing/clark/1.png" alt="Clark drawing 1">
       </figure>
   
       <figure class="slide">
-        <img src="assets/drawing/sketchbook/tintin.jpeg" alt="Tintin drawing">
-        <figcaption class="caption">Tintin Study · 2024</figcaption>
-      </figure>
-  
-      <figure class="slide">
-        <img src="assets/drawing/sketchbook/dino.jpeg" alt="Bedroom sketch">
-        <figcaption class="caption">Natural History Museum · 2024</figcaption>
+        <img src="assets/drawing/clark/2.jpeg" alt="Clark drawing 2">
       </figure>
 
-        
       <figure class="slide">
-        <img src="assets/drawing/sketchbook/croc.png" alt="crocodile">
-        <figcaption class="caption">Sturgeon, Salman Toor · 2025</figcaption>
+        <img src="assets/drawing/clark/3.jpg" alt="Clark drawing 2">
+      </figure>
+
+      <figure class="slide">
+        <img src="assets/drawing/clark/4.jpeg" alt="Clark drawing 2">
+      </figure>
+
+      <figure class="slide">
+        <img src="assets/drawing/clark/5.png" alt="Clark drawing 2">
+      </figure>
+
+      <figure class="slide">
+        <img src="assets/drawing/clark/6.jpeg" alt="Clark drawing 2">
+      </figure>
+
+      <figure class="slide">
+        <img src="assets/drawing/clark/7.jpeg" alt="Clark drawing 2">
+      </figure>
+
+      <figure class="slide">
+        <img src="assets/drawing/clark/8.png" alt="Clark drawing 2">
+      </figure>
+
+      <figure class="slide">
+        <img src="assets/drawing/clark/9.jpeg" alt="Clark drawing 2">
       </figure>
 
 
       <figure class="slide">
-        <img src="assets/drawing/sketchbook/conversation.jpg" alt="conversation">
-        <figcaption class="caption">Conversation · 2024</figcaption>
+        <img src="assets/drawing/clark/10.jpeg" alt="Clark drawing 2">
       </figure>
-  
+
+
+      <figure class="slide">
+        <img src="assets/drawing/clark/11.jpg" alt="Clark drawing 2">
+      </figure>
+
+
+      <figure class="slide">
+        <img src="assets/drawing/clark/12.png" alt="Clark drawing 2">
+      </figure>
+
+      
+      <figure class="slide">
+        <img src="assets/drawing/clark/13.png" alt="Clark drawing 2">
+      </figure>
     </div>
-  </section> -->
+  </section>
+  
 
 
   <br>
@@ -202,7 +233,27 @@
           nav.style.display = 'flex';
         }
       });
-    
+      
+
+      // Click-through slideshow for the second slideshow only
+      document.querySelectorAll('.slideshow.slideshow2').forEach(section => {
+        const slides = section.querySelectorAll('.slide');
+        const container = section.querySelector('.slideshow-container');
+        let i = 0;
+
+        if (!slides.length) return;
+
+        // show first slide
+        slides[i].classList.add('is-active');
+
+        // click/tap to advance
+        container.addEventListener('click', () => {
+          slides[i].classList.remove('is-active');
+          i = (i + 1) % slides.length;
+          slides[i].classList.add('is-active');
+        });
+      });
+
     
     </script>
 </body>

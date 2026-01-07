@@ -372,6 +372,86 @@ body {
   opacity: 0.75;
 }
 
+/* --- Click-through slideshow (slideshow2) --- */
+.slideshow.slideshow2 .slideshow-container.auto {
+  cursor: pointer;
+}
+
+/* turn OFF the auto animation just for slideshow2 */
+.slideshow.slideshow2 .slideshow-container.auto .slide {
+  animation: none;      /* overrides: animation: slideFade ... */
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* show the currently active slide */
+.slideshow.slideshow2 .slideshow-container.auto .slide.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ---------- slideshow2 circular buttons ---------- */
+.slideshow.slideshow2 .slideshow-container {
+  position: relative;
+}
+
+/* circular buttons */
+.slideshow.slideshow2 .slide-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0,0,0,0.45);
+  color: white;
+  border: none;
+  cursor: pointer;
+
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+/* positioning */
+.slideshow.slideshow2 .slide-btn.prev {
+  left: 12px;
+}
+
+.slideshow.slideshow2 .slide-btn.next {
+  right: 12px;
+}
+
+/* hover / focus */
+.slideshow.slideshow2 .slide-btn:hover {
+  background: rgba(0,0,0,0.7);
+}
+
+.slideshow.slideshow2 .slide-btn:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
+.slideshow.slideshow2 .slide-progress {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.9);
+  background: rgba(0,0,0,0.45);
+  padding: 4px 10px;
+  border-radius: 999px;
+  z-index: 10;
+}
+
 /* Mobile */
 @media (max-width: 700px) {
   .site-footer {
